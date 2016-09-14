@@ -1,0 +1,58 @@
+@model shauli.Models.Fan
+
+@{
+    ViewData["Title"] = "Dog Lover Registration";
+}
+
+<h2>Become a Dog Lover!</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal" style="width:520px;display:inline-block">
+        <h4>Dog Lover Registration</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="FName" class="col-md-2 control-label">First</label>
+            <div class="col-md-10">
+                <input asp-for="FName" class="form-control" />
+                <span asp-validation-for="FName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LName" class="col-md-2 control-label">Last</label>
+            <div class="col-md-10">
+                <input asp-for="LName" class="form-control" />
+                <span asp-validation-for="LName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="gender" class="col-md-2 control-label">Gender</label>
+            <div class="col-md-10">
+                <input asp-for="gender" class="form-control" />
+                <span asp-validation-for="gender" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="vetek" class="col-md-2 control-label">DogLover Since</label>
+            <div class="col-md-10">
+                <input asp-for="vetek" class="form-control" />
+                <span asp-validation-for="vetek" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

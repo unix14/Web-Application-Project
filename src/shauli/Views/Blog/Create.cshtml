@@ -1,0 +1,78 @@
+@model shauli.Models.Post
+
+@{
+        ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-inline">
+        <h4>Create Post</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group" style="display:inline-block;margin-right:250px;">
+            <label asp-for="PostTitle" class="col-md-2 control-label">Title</label>
+            <div class="col-md-10">
+                <input asp-for="PostTitle" class="form-control" style="width:220px;margin-bottom:20px;"/>
+                <span asp-validation-for="PostTitle" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group"  style="display:inline-block">
+            <label asp-for="PostAuthorName" class="col-md-2 control-label" style="margin-right:0px;">Writer</label>
+            <div class="col-md-10">
+                <input asp-for="PostAuthorName" class="form-control" style="width:140px;margin-left:11px;" />
+                <span asp-validation-for="PostAuthorName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group" style="display:inline-block;margin-left:39px;">
+            <label asp-for="PostAuthorWebAddress" class="col-md-2 control-label">Link</label>
+            <div class="col-md-10">
+                <input asp-for="PostAuthorWebAddress" class="form-control" />
+                <span asp-validation-for="PostAuthorWebAddress" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group" style="visibility:hidden;">
+            <div class="col-md-10">
+                <input asp-for="PostPublished" value= "(@DateTime.Now.ToString())"  class="form-control" disabled   />
+                <span asp-validation-for="PostPublished" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Text" class="col-md-2 control-label">Text</label>
+            <div class="col-md-10">
+                <textarea input asp-for="Text"  class="form-control" style="width:390px;height:150px;margin:12px -19px 35px 0px;"></textarea>
+                <span asp-validation-for="Text" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group"  style="display:inline-block">
+            <label asp-for="VideoPath" class="col-md-2 control-label">Video</label>
+            <div class="col-md-10">
+                <input asp-for="VideoPath" class="form-control"/>
+                <span asp-validation-for="VideoPath" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group" style="display:inline-block">
+            <label asp-for="PicturePath" class="col-md-2 control-label">Picture</label>
+            <div class="col-md-10">
+                <input asp-for="PicturePath" class="form-control" />
+                <span asp-validation-for="PicturePath" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Post" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to Blog</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

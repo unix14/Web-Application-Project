@@ -1,0 +1,42 @@
+@model shauli.Models.Fan
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fan</h4>
+    <hr />
+    <dl class="dl-horizontal" style="width:520px;display:inline-block">
+        <dt>
+            First Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+        <dt>
+            Last Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+        <dt>
+            Gender
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+        <dt>
+            Dog Lover Since
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.vetek)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

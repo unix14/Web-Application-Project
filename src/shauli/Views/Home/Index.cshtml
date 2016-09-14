@@ -1,0 +1,49 @@
+﻿
+
+@{
+    ViewData["Title"] = "Home";
+
+}
+
+<section>
+    <header>
+        <h2>
+            Welcome to It's All About Dogs!
+        </h2>
+    </header>
+    <hr style="border:1px groove;width:590px" />
+    <section>
+        @{
+            @model IEnumerable<shauli.Models.Post>
+        }
+        <!-- New Posts -->
+        <header>
+            <h3>Latest Posts</h3>
+        </header>
+        <ul>
+            @foreach (Post post in Model.Reverse())
+            {
+                <li>
+                    <a href="Blog/PostDetails?=@Html.DisplayFor(modelItem => post.PostID)" title="Created at @Html.DisplayFor(modelItem => post.PostPublished)">@Html.DisplayFor(modelItem => post.PostTitle)</a>
+                    <h6 style="display: inline-block;margin-top: -200px;">By @Html.DisplayFor(modelItem => post.PostAuthorName)</h6>
+                </li>
+            }
+        </ul>
+    </section>
+    <hr style="border:1px groove;width:590px" />
+
+    <p>
+    The most important thing to familiarize yourself with is the “It's All About Dogs” This site is for the love of dogs.
+         <br />It is about caring and support.
+         It is about fun, friendly and informational sharing of our passion for our furry friends.<br />
+         <br />There is no shortage of places on the Internet to fight,
+         scratch and snarl and we thought it was high time to have a place that was all about the kindness and fun of sharing and communication.
+        <img src="https://45.media.tumblr.com/8a99d34780bd28246d4d12fcf64711ba/tumblr_o2m4uh6Vbs1v8uqeqo1_400.gif" />
+    </p>
+    <p>
+     If you’re used to the dog fighting that happens in other online communities,
+     you can pull your claws in and stop growling.<br />
+        'It's All About Dogs' is a fun, friendly place. Take the time to be nice here! It’s well worth the effort.
+    </p>
+</section>
+<hr style="border:1px groove;width:590px" />

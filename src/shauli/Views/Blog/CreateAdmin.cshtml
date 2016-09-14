@@ -1,0 +1,42 @@
+@model shauli.Models.Admin
+
+@{
+    ViewData["Title"] = "Create Admin";
+}
+
+<h2>Administrations Access</h2> 
+
+<form asp-action="CreateAdmin">
+    <div class="form-horizontal" style="width:580px;display:inline-block ">
+        <h4>fill up Admin Creditentials</h4>
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group" style="height:12px;">
+            <label asp-for="Username" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Username" class="form-control" style="width:250px;height:30px;"/>
+                <span asp-validation-for="Username" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group"style="height:12px;">
+            <label asp-for="Password" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Password" class="form-control"style="width:250px;height:30px;" />
+                <span asp-validation-for="Password" class="text-danger" />
+            </div>
+        </div>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create Admin" class="btn btn-default" style="width:130px;height:35px;display:block;margin-left:-94px;margin-top:24px;"/>
+            </div>
+        </div>
+
+</form>
+
+<div>
+    <a asp-action="AdminPanel">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

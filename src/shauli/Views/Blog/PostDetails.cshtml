@@ -1,0 +1,106 @@
+@model shauli.ViewModels.CommentsPosts
+
+@{
+    ViewData["Title"] = "Post Details";
+}
+
+                <h2>@Html.DisplayFor(modelItem => Model.posts.PostTitle)</h2>
+<hr style="border:1px groove;width:570px" />
+<div>
+    <hr />
+    <section>
+        <article class="blogPost">
+            <header>
+                <p>Posted on @Html.DisplayFor(modelItem => Model.posts.PostPublished) by <a href=@Html.DisplayFor(modelItem => Model.posts.PostAuthorWebAddress)>@Html.DisplayFor(modelItem => Model.posts.PostAuthorName)</a> - <a href="#comments">@Html.DisplayFor(modelItem => Model.posts.Comments.Count) Comments</a></p>
+    
+            </header>
+            <div>
+                <p>@Html.DisplayFor(modelItem => Model.posts.Text)</p>
+                @if (Model.posts.PicturePath != null)
+                {
+                    <img src="@Html.DisplayFor(modelItem => Model.posts.PicturePath)" inline width="290" height="170" style="padding-right:10px;" />
+
+                }
+                @if (Model.posts.VideoPath != null)
+                {
+                    <video controls="controls" style="margin-left:39px;margin-top:95px;display:block;width:250px;" title="Double Click for Full-Screen">
+                        <source src=@Html.DisplayFor(modelItem => Model.posts.VideoPath) type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                }
+            </div>
+        </article>
+    </section>
+    <section id="comments">
+        @if (Model.posts.Comments.Count() > 0)
+        {
+            <h3>Comments</h3>
+                        <a id="hider">
+                            Expand All
+                        </a>
+                        @foreach (var comment in Model.posts.Comments.Reverse())
+                        {
+                            <article id=@Html.DisplayFor(modelItem => comment.CommentID) )>
+                                <ol style="list-style-type: disc;">
+                                    <li>
+                                        <header id="show">
+                                            <a>@Html.DisplayFor(modelItem => comment.CommentTitle)</a>
+                                        </header>
+                                        <comment id="hide">
+                                            @if (comment.CommentAuthorWebAddress != null)
+                                            {
+                                                <a href="@Html.DisplayFor(modelItem => comment.CommentAuthorWebAddress)" title="User Link : @Html.DisplayFor(modelItem => comment.CommentAuthorWebAddress)">
+                                                    @Html.DisplayFor(modelItem => comment.CommentAuthorName)
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                @Html.DisplayFor(modelItem => comment.CommentAuthorName)
+                                            }
+                                            <p>@Html.DisplayFor(modelItem => comment.Text)</p>
+                                        </comment>
+                                    </li>
+                                </ol>
+                            </article>
+
+                        }
+        }
+        else
+        {
+            <h4>No Comments yet...</h4>
+        }
+
+    </section>
+    <h3 id="qComment" onclick="openComment(this)">Quick Comment</h3>
+    <form asp-controller="Blog" asp-action="AddComment" method="post" id="openComment">
+        <p>
+            <label for="CommentTitle">Title</label>
+            <input name="CommentTitle" id="CommentTitle" type="text" required />
+        </p>
+        <p>
+            <label for="CommentAuthorName">Name</label>
+            <input name="CommentAuthorName" id="CommentAuthorName" type="text" required />
+        </p>
+        <p>
+            <label for="CommentAuthorWebAddress">Link</label>
+            <input name="CommentAuthorWebAddress" id="website" type="url" />
+        </p>
+        <p>
+            <label for="Text">Comment</label>
+            <textarea name="Text" id="Text" required onfocus="inputFocus(this)" onblur="inputBlur(this)">Comment Here...</textarea>
+        </p>
+        <p>
+            <input name="PostID" id="PostID" value="@Html.DisplayFor(modelItem => Model.posts.PostID)" type="hidden" required />
+        </p>
+        <p><input type="submit" value="Send" /></p>
+    </form>
+
+    <hr style="border:1px groove;" />
+    
+</div>
+<h5>Post ID: @Model.posts.PostID</h5>
+<p style="position:static;padding-top:170px;">
+    <a asp-action="EditPost" asp-route-id="@Model.posts.PostID">Edit</a> |
+    <a asp-action="GetPostComments" asp-route-id="@Model.posts.PostID">Comments</a> |
+    <a asp-action="AdminPanel">Back to List</a>
+</p>

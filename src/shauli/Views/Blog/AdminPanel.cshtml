@@ -1,0 +1,72 @@
+@model IEnumerable<shauli.Models.Post>
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+<style>
+    table,th,td{
+        width:2px;
+    }
+    th,td{
+        width:8px;
+    }
+    th{
+        font-size:larger;
+    }
+</style>
+<h2>Admin Panel</h2>
+<hr style="border:1px groove;width:580px;"/>
+<h4>Manage Posts</h4>
+<br />
+<table class="dbTable" style="width:600px;border-collapse:collapse">
+    <tr>
+        <th>
+            Post
+        </th>
+
+        <th>
+            Author
+        </th>
+       
+        <th>
+            Link
+        </th>
+        <th>
+            Admin Controls
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.PostID">  @Html.DisplayFor(modelItem => item.PostTitle) </a>
+            </td>
+      
+            <td>
+                @Html.DisplayFor(modelItem => item.PostAuthorName)
+            </td>
+            <td>
+                <a href=@Html.DisplayFor(modelItem => item.PostAuthorWebAddress)>Link</a>
+            </td>
+            
+            <td id="adminContent">
+                <a asp-action="EditPost" asp-route-id="@item.PostID">Edit</a> |
+                <a asp-action="PostDetails" asp-route-id="@item.PostID">Details</a> |
+                <a asp-action="DeletePost" asp-route-id="@item.PostID">Delete</a> |
+                <a asp-action="GetPostComments" asp-route-id="@item.PostID">Comments</a>
+            </td>
+        </tr>
+    }
+</table>
+<hr style="border:1px groove;width:580px;" />
+<p>
+    <h4>Admin Actions</h4>
+    <ul style="list-style:inside;">
+        <li> <a asp-action="Create">Add New Post</a> </li>
+        <li> <a asp-action="ManageFans">Manage Dog Lover's Club List</a> </li>
+        <li> <a asp-action="CreateAdmin">Generate New admin</a> </li>
+        <li> <a asp-action="ManageAdmins">Manage Admin List</a> </li>
+    </ul>
+    <br />
+    
+</p>

@@ -1,0 +1,64 @@
+@model IEnumerable<shauli.Models.Comment>
+
+
+
+@{
+    ViewData["Title"] = "Post Comments";
+}
+
+<style>
+    table, th, td {
+        width: 200px;
+    }
+
+    th, td {
+        width: 110px;
+    }
+
+    th {
+        font-size: larger;
+    }
+</style>
+<h2>Post Comments</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+                User Link
+        </th>
+        <th>
+            Comment
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentAuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentAuthorWebAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+            <td>
+                <a asp-action="DeleteComment" asp-route-id="@item.CommentID">Delete Comments</a>
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    <a asp-action="AdminPanel">Back to Admin Panel</a>
+</p>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+<div>
+    <h2>About "It's All About Dogs"</h2>
+    <img src="~/images/picc.jpg" style="width:360px;height:280px;" alt="It's All About dogs!" />
+    <br />
+    <p>
+        This is a Project in Internet Application Development course.
+        This Project has been created ,designed and programmed by :
+        <ul style="list-style:circle">
+            <li>
+                Eyal Yaakovi  , ID : 312459415
+            </li>
+            <li>
+                 Shahar Tako  , ID : 303045348
+            </li>
+        </ul>
+    </p>
+    <b>Where i want to be right now :</b>
+    <div id="map">
+    <script>
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+            center: { lat: 52.373, lng: 4.8932 },
+            zoom: 12
+        });
+      }
+    </script>
+
+    </div>
+
+    <!--Google's Map-->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdlSKIAk56MRVHi2AlRJ-fYGiH49p0qfo&callback=initMap">
+    </script>
+    <br />
+ </div>

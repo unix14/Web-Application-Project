@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+
+@using System.Security.Claims
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - It's All About Dogs</title>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/style.css" />
+        <link rel="stylesheet" href="http://www.rssing.com/inc/css/embed.css" type="text/css">
+    </environment>
+    <script>
+        function clearContents(element) {
+            element.value = '';
+        }
+
+        function inputFocus(i) {
+            if (i.value == i.defaultValue) { i.value = ""; i.style.color = "#000"; }
+        }
+        function inputBlur(i) {
+            if (i.value == "") { i.value = i.defaultValue; i.style.color = "#888"; }
+        }
+</script>
+</head>
+    <body>
+        @await Html.PartialAsync("_LoginPartial")
+        <header>
+            <div id="headtext">It's All About Dogs</div>
+        </header>
+        <nav>
+            <!-- Navigation -->
+            <ul>
+                <li class="selected"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="selected"><a asp-controller="Blog" asp-action="Index">Blog</a></li>
+                <li class="selected"><a asp-controller="Fans" asp-action="Index">Dog Lover's Club</a></li>
+                <li class="selected"><a asp-controller="Search" asp-action="Index">Search</a></li>
+                <li class="selected"><a asp-controller="Home"asp-action="About">About</a></li>
+            </ul>
+        </nav>
+        <section id="intro">
+            <!-- Introduction -->
+            <header>
+                <h2>Everything you need to know</h2>
+            </header>
+            <p>To live happily ever after, with your dog.</p>
+            <img src="~/images/intro.jpg" style="width:996px;" alt="It's All about Dogs"/>
+        </section>
+        <aside>
+            <!--ASide-->
+            <section style="padding:0;">
+                <!-- Live Music Stream -->
+                    <div class="title" style="color:white;background-color:grey;">
+                <b>
+                Live Radio Stream
+                </b>
+                    </div>
+                <div>
+                    <audio autoplay loop controls id="music2">
+                        <source src="http://chill.out.airtime.pro:8000/chill_a">
+                        Your browser does not support this audio element.
+                    </audio>
+                </div>
+            </section>
+            <section style="padding:0;">
+                <!-- RSS Feeds -->
+                <script type="text/javascript" >
+                    document.write('\x3Cscript type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'feed.mikle.com/js/rssmikle.js">\x3C/script>');
+                </script>
+                <script type="text/javascript" >
+                    (function () {
+                        var params = {
+                            rssmikle_url: "http://www.petslocated.com/rssfeeds/missing_dogs.xml",
+                            rssmikle_frame_width: "250",
+                            rssmikle_frame_height: "200",
+                            frame_height_by_article: "0",
+                            rssmikle_target: "_blank",
+                            rssmikle_font: "Arial, Helvetica, sans-serif",
+                            rssmikle_font_size: "12", rssmikle_border: "off",
+                            responsive: "on",
+                            rssmikle_css_url: "",
+                            text_align: "left",
+                            text_align2: "left",
+                            corner: "on",
+                            scrollbar: "off",
+                            autoscroll: "on",
+                            scrolldirection: "up",
+                            scrollstep: "3",
+                            mcspeed: "30",
+                            sort: "Off",
+                            rssmikle_title: "on",
+                            rssmikle_title_sentence: "Lost Dogs RSS",
+                            rssmikle_title_link: "http://www.petslocated.com/rssfeeds/missing_dogs.xml",
+                            rssmikle_title_bgcolor: "grey",
+                            rssmikle_title_color: "white",
+                            rssmikle_title_bgimage: "inherit",
+                            rssmikle_item_bgcolor: "inherit",
+                            rssmikle_item_bgimage: "inherit",
+                            rssmikle_item_title_length: "55",
+                            rssmikle_item_title_color: "#000000",
+                            rssmikle_item_border_bottom: "on",
+                            rssmikle_item_description: "on",
+                            item_link: "off",
+                            rssmikle_item_description_length: "85",
+                            rssmikle_item_description_color: "#666666",
+                            rssmikle_item_date: "gl1",
+                            rssmikle_timezone: "Etc/GMT",
+                            datetime_format: "%b %e, %Y %l:%M %p",
+                            item_description_style: "text+tn",
+                            item_thumbnail: "full",
+                            item_thumbnail_selection: "auto",
+                            article_num: "25",
+                            rssmikle_item_podcast: "on",
+                            keyword_inc: "",
+                            keyword_exc: ""
+                        };
+                        feedwind_show_widget_iframe(params);
+                    })();
+                </script>
+                    
+            </section>
+            <section>
+                <!-- Search Bar -->
+                <header>
+                    <h3>Search</h3>
+                </header>
+
+                    @using (Html.BeginForm("Search","Search"))
+                    {
+                        <div id="searchBar" style="display:compact">
+                            <input id="searchTitle" name="searchTitle" value="Search By Post Title ..."  onfocus="inputFocus(this)" onblur="inputBlur(this)" type="text" style="width:210px;height:25px;">
+                            <input type="submit" value="Search" style="display:flex;position:relative;left:55px;bottom:26px;" />
+                        </div>
+                    }
+
+                <a asp-controller="Search" asp-action="Index" style="bottom:26px;position:relative;padding-bottom:0px;"> Advanced</a>
+            </section>
+            <section>
+                <header>
+                    <h3>Categories</h3>
+                </header>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Sit amet consectetur</a></li>
+                    <li><a href="#">Adipisicing elit sed</a></li>
+                </ul>
+            </section>
+            <section>
+                <header>
+                    <h3>Archives</h3>
+                </header>
+                <ul>
+                    <li><a href="#">December 2008</a></li>
+                    <li><a href="#">January 2009</a></li>
+                    <li><a href="#">February 2009</a></li>
+                    <li><a href="#">March 2009</a></li>
+                </ul>
+            </section>
+        </aside>
+ 
+        <div class="container body-content"  style="display:block;width:650px;right:20px;right:145px;position:relative;">
+ 
+    <div class="myFont" style="width:450px;">
+        @RenderBody()
+
+        @RenderSection("scripts", required: false)
+    </div>
+</div>
+        <footer style="margin-top:30px;">
+            <!-- Footer -->
+            <div>
+                <section id="about">
+                        <h3>What is 'dog'</h3>
+                    <p>Dogs are often called "man's best friend" because they fit in with human life. Dogs can serve people in many ways. For example, there are guard dogs, hunting dogs, herding dogs, guide dogs for blind people, and police dogs There are also dogs that are trained to smell for diseases in the human body or to find bombs or illegal drugs. </p>
+                </section>
+                <section id="blogroll">
+                        <h3>Web Links</h3>
+                    <ul>
+                        @if (User.IsSignedIn())
+                        {
+                        <li><a asp-controller="Home" asp-action="Login">Admin Panel</a></li>
+                        }
+                        <li><a href="https://www.facebook.com">Facebook</a></li>
+                        <li><a href="https://www.twitter.com">Twitter</a></li>
+                        <li><a href="https://www.linkedin.com">Linked-In</a></li>
+
+                    </ul>
+                </section>
+                <section id="popular">
+                        <h3>Suggested Dog Links</h3>
+                    <ul>
+                        <li><a href="http://www.dogloversdays.com/">Dog Lover Days</a></li>
+                        <li><a href="http://www.dogster.com">Dogster</a></li>
+                        <li><a href="http://www.catster.com/">Catster</a></li>
+                        <li><a href="http://www.webvet.com/main/">WebVet</a></li>
+
+                    </ul>
+                </section>
+            </div>
+        </footer>
+    </body>
+</html>

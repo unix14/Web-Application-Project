@@ -1,0 +1,54 @@
+@model IEnumerable<shauli.Models.Fan>
+
+@{
+    ViewData["Title"] = "Dog Lover's Club";
+}
+
+    <h2>Dog Lover's Club</h2>
+    <h3>Who Doesn't Love Dogs? we all do!</h3>
+<hr style="border:0.4px groove;width:590px;" />
+<p>
+    If You're a true Dog Lover - we invite you to sign up for this Dog Lovers Club in order to support sheltered dogs all over the world.
+This Dog Lover Club is a close group who will get updates to mail as soon as new stories will be uploaded in our blog.
+    </p>
+<br />
+    <p>
+        <a asp-action="Create">Become a Dog Lover!</a>
+    </p>
+<div style="overflow-x:auto;width:480px;">
+    <table class="table">
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Dog Lover  Since
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vetek)
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>

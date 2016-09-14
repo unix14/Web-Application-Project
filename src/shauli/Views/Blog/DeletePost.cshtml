@@ -1,0 +1,64 @@
+@model shauli.Models.Post
+
+@{
+    ViewData["Title"] = "Delete Post";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostAuthorName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostAuthorName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostAuthorWebAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostAuthorWebAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostPublished)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostPublished)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoPath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VideoPath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PicturePath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PicturePath)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteConfirmed">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="AdminPanel">Back</a>
+        </div>
+    </form>
+</div>

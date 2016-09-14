@@ -1,0 +1,41 @@
+﻿
+@using System.Security.Claims
+@{
+    ViewData["Title"] = "Search";
+
+}
+<div>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+
+        <h2>Search Post</h2>
+
+        @using (Html.BeginForm("Search","Search"))
+        {
+                <p>
+                    <label>Title</label>
+                @Html.TextBox("searchTiTle")
+               </p>
+            <p>
+                <label>Author</label>
+                    @Html.TextBox("searchAuthor")
+            </p>
+                <p>
+                    <label>Address</label>
+                    @Html.TextBox("searchAddress")
+                </p>
+                <p>
+                    <label>Sort by</label>
+                    <select name="sortOrder">
+                        <option value="">Choose</option>
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="address">Address</option>
+                    </select>
+                </p>
+            <input id="searchSubmit" type="submit" value="Search" />
+        }
+
+</div>
+
+
+

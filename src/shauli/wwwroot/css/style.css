@@ -1,0 +1,525 @@
+/*------------------------------
+=BASIC SETUP
+------------------------------*/
+
+/* Makeshift CSS Reset */
+* {
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+   font-family: myFont;
+   src: url(../../font/sansation_light.woff);
+}
+.myFont { font-family: myFont , verdana, helvetica, sans-serif;  
+	}  
+
+#transDemo2 div {
+  height:30px;
+  width:30px;
+  text-align:center;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+
+#transDemo2 div:hover, #transDemo2 div.hover_effect {
+  -webkit-transform:rotate(720deg) scale(2,2);
+  -moz-transform:rotate(720deg) scale(2,2);
+  -ms-transform:rotate(720deg) scale(2,2);
+  transform:rotate(720deg) scale(2,2);
+}
+
+/* Tell the browser to render HTML 5 elements as block */
+header, footer, section, aside, nav, article {
+	display: block;
+}
+
+body {
+	margin: 0 auto;
+	padding: 22px 0;
+	width: 940px;
+	font: 13px/22px Helvetica, Arial, sans-serif;
+	background: #F0F0F0;
+}
+
+h1, h2 {
+	font-size: 28px;
+	line-height: 44px;
+	padding: 22px 0;
+}
+
+#headtext {
+    font-size: 28px;
+    font-weight: bold;
+	line-height: 44px;
+	padding: 22px 0;
+    text-shadow: 5px 5px #DDDDDD;
+}
+h3 {
+	font-size: 18px;
+	line-height: 22px;
+	padding: 11px 0;
+}
+myFont{
+    font-family: myFont;
+}
+
+p {
+	padding-bottom: 22px;
+}
+/*------------------------------
+=Music Player
+------------------------------*/
+music{
+    visibility:visible; 
+    position: absolute;
+    top: 8px;
+    right: 16px;
+        width: 200px;
+    height: 100px;
+}
+#music2{
+    background-color:blue;
+    width:282px;
+    opacity:unset;
+}
+
+
+/*------------------------------
+=NAVIGATION
+------------------------------*/
+
+nav {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: url("/../images/nav_background.png");
+}
+
+	nav ul {
+		margin: 0 auto;
+		width: 940px;
+		list-style: none;
+	}
+
+		nav ul li {
+			float: left;
+		}
+		
+			nav ul li a {
+				display: block;
+				margin-right: 20px;
+				width: 140px;
+				font-size: 14px;
+				line-height: 44px;
+				text-align: center;
+				text-decoration: none;
+				color: white;
+			}
+			
+				nav ul li a:hover {
+					color: slateblue;
+                        text-decoration: none;
+				}
+			
+			nav ul li.selected a:active {
+				color: beige;
+			}
+
+			
+			nav ul li.subscribe a {
+				margin-left: 22px;
+				padding-left: 33px;
+				text-align: left;
+				background: url("../../images/rss.png") left center no-repeat;
+			}
+
+
+/*------------------------------
+=INTRODUCTION
+------------------------------*/
+
+#intro {
+	position: relative;
+	margin-top: 66px;
+	padding: 44px;
+	
+	/* Background-size not implemented yet */
+	-webkit-background-size: 100%;
+	-o-background-size: 100%;
+	-khtml-background-size: 100%;
+
+	
+	/* Border-radius not implemented yet */
+	-moz-border-radius: 22px;
+	-webkit-border-radius: 22px;
+}
+
+	#intro h2, #intro p {
+		position: relative;
+		z-index: 9999;
+		width: 436px;
+        color:white;
+	}
+	
+	#intro h2 {
+		padding: 0 0 22px 0;
+        font-weight:bold;
+	}
+	
+	#intro p {
+		padding: 0;
+		color: white;
+        font-size:medium
+	}
+	
+	#intro img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 653px;
+		height: 100%;
+	
+		/* Border-radius not implemented yet */
+		-moz-border-radius: 22px;
+		-webkit-border-radius: 22px;
+	}
+
+/*------------------------------
+=CONTENT AREA AND SIDEBAR LAYOUT
+------------------------------*/
+
+#content {
+	display: table;
+}
+
+	#mainContent {
+		display: table-cell;
+		width: 620px;
+		padding-right: 22px;
+	}
+	aside { 
+		display: table-cell;
+		width: 300px;
+		background: url("../../images/sidebar_background.png") top left;
+        float:right;
+	}
+    #slider{
+        width:25%;
+        
+    }
+/*-----------------------------
+=Statics
+-------------------------------*/
+    svg {
+        font: 10px sans-serif;
+    }
+
+    .y.axis path {
+        display: none;
+    }
+
+    .y.axis line {
+        stroke: #fff;
+        stroke-opacity: .2;
+        shape-rendering: crispEdges;
+    }
+
+    .y.axis .zero line {
+        stroke: #000;
+        stroke-opacity: 1;
+    }
+
+    .titles {
+        font: 300 78px Helvetica Neue;
+        fill: #666;
+    }
+
+    .birthyear,
+    .age {
+        text-anchor: middle;
+    }
+
+    .birthyear {
+        fill: #fff;
+    }
+
+    rect {
+        fill-opacity: .6;
+        fill: #e377c2;
+    }
+
+        rect:first-child {
+            fill: #1f77b4;
+        }
+/*------------------------------
+=SIDEBAR
+------------------------------*/
+aside section {
+	margin: 12px 0 0 12px;
+    padding: 5px 12px;
+	background: url("../../images/sidebar_section_background.png") repeat-x;
+	/* Border-radius not implemented yet */
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+}
+
+	aside section ul {
+		margin: 0 0 0 22px;
+		list-style: disc;
+	}
+	
+		aside section ul li a {
+			display: block;
+			text-decoration: none;
+			color: #000;
+		}
+		
+			aside section ul li a:hover {
+				text-decoration: underline;
+                text-decoration-color:cornflowerblue;
+			}
+
+aside section .title {
+    margin: 0px;
+    padding: 2.5px 2px 0px 12px;
+    color: black;
+    background-color: yellowgreen;
+    background-image: none;
+    border-radius:10px;
+    width:98%;
+    
+}
+
+#atitle {
+    margin: 0;
+
+    padding: 0;
+    font-weight: bold;
+    word-wrap: break-word;
+
+}
+/*------------------------------
+=BLOG POST
+------------------------------*/
+.blogPost header p, .blogPost header p a {
+		font-size: 14px;
+		font-style: italic;
+		color: #777;	}
+	
+		.blogPost header p a:hover {
+			text-decoration: none;
+			color: #000;
+		}
+
+.blogPost div {
+	/* Column-count not implemented yet */
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	
+	/* Column-gap not implemented yet */
+	-moz-column-gap: 22px;
+	-webkit-column-gap: 22px;
+}
+
+.blogPost img {
+	margin: 22px 0;
+	-webkit-box-shadow: 3px 3px 7px #777;
+}
+
+.blogPost video {
+	margin: 12px 0;
+	width: 100%;
+	height: auto;
+	-webkit-box-shadow: 3px 3px 7px #777;
+}
+form-group textarea {
+    width:2030px;
+}
+/*------------------------------
+=COMMENTS
+------------------------------*/
+
+#comments {
+	margin-top: 2px;
+	padding-top: 2px;
+	border-top: 1px solid #d7d7d7;
+
+}
+
+	#comments article {
+		display: flex;
+		padding: 1px;
+        display:flex;
+		background: #E3E3E3;
+		border: 2px solid #d7d7d7;
+		-moz-border-radius: 11px;
+		-webkit-border-radius: 11px;
+	}
+	
+		#comments article header {
+			display: inline;
+			width: 290px;
+			padding-right: 2px;
+            padding-bottom:-20px;
+            
+		}
+		
+			#comments article header a {
+				display: inline;
+				font-weight: bold;
+				color: #000;
+                padding-right:2.5px;
+			}
+			
+				#comments article header a:hover {
+					text-decoration: none;
+                    text-underline-position:below;
+				}
+		
+		#comments article p {
+			padding: 1.5px;
+		}
+
+
+
+/*------------------------------
+=COMMENT FORM
+------------------------------*/
+form {
+	margin-top: 21px;
+	padding-top: 22px;
+	border-top: 1px solid #d7d7d7;
+}
+
+	form p {
+		display: table;
+		margin-bottom: 22px;
+		padding: 0 22px;
+	}
+
+		form label {
+			display: table-cell;
+			width: 140px;
+			padding-right: 20px;
+			text-align: right;
+			font-weight: bold;
+			vertical-align: top;
+		}
+	
+		form input[type="text"], form input[type="email"], form input[type="url"] {
+			display: table-cell;
+			width: 300px;
+			height: 20px;
+			border: 1px solid #d7d7d7;
+		}
+		
+		form textarea {
+			width: 300px;
+			height: 100px;
+			border: 1px solid #d7d7d7;
+		}
+		
+		form input[type="submit"] {
+			margin-left: 162px;
+		}
+
+
+
+/*------------------------------
+=FOOTER
+------------------------------*/
+footer {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background: #222;
+}
+
+	footer div {
+		display: table;
+		margin: 0 auto;
+		padding: 44px 0;
+		width: 940px;
+		color: #777;
+	}
+	
+		footer div section {
+			display: table-cell;
+			width: 300px;
+		}
+		
+		footer div #about, footer div #blogroll {
+			padding-right: 20px;
+		}
+		
+	footer h3 {
+		color: #FFF;
+	}
+	
+	footer a {
+		color: #999;
+	}
+	
+		footer a:hover {
+			color: #FFF;
+			text-decoration: none;
+		}
+	
+	footer ul {
+		margin: 0 0 0 40px;
+		list-style: square;
+		color: #565656;
+	}
+	
+		footer ul li a {
+			display: block;
+		}
+
+
+
+/*------------------------------
+=Fan Club
+------------------------------*/
+table, th,td{
+    border: 1.5px solid black;
+    border-collapse: separate;
+    table-layout: fixed;
+    padding: 8px;
+    vertical-align: middle;
+}
+table {
+    width: 100%;
+    border: 1px;
+    
+}
+tr:hover {
+    background-color: whitesmoke  
+}
+
+th{
+    height: 11px;
+    width: 2px;
+}
+th, td {
+    width: 3px;
+    padding: 1px;
+    text-align: left;
+    border-bottom: 4.2px solid #ddd;
+    border: medium;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+/*------------------------------
+ Google Maps
+------------------------------*/
+       #map {
+        border:dotted;  
+        width: inherit;
+        height: 420px;
+        right:7px;
+      }

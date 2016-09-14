@@ -1,0 +1,67 @@
+@model IEnumerable<shauli.Models.Fan>
+@{
+    ViewData["Title"] = "Manage Dog Lover's Club";
+}
+<style>
+    table,th,td{
+        width:2px;
+    }
+    th,td{
+        width:8px;
+    }
+    th{
+        font-size:larger;
+    }
+</style>
+<h2>Manage Dog Lover's Club</h2>
+<hr style="border:1px groove;width:580px;"/>
+
+
+<div style="overflow-x:auto;width:580px;">
+    <table class="table">
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                DogLover's Since
+            </th>
+            <th>Admin Panel</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        @if (item != null)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vetek)
+                    </td>
+                    <td>
+                        <a asp-controller="Fans" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-controller="Fans" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-controller="Fans" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+        }
+}
+    </table>
+
+</div>
+<hr style="border:1px groove;width:580px;" />
+<a asp-controller="Fans"asp-action="Create">Add New DogLover</a> | 
+<a asp-action="AdminPanel">Back to Admin Panel</a>

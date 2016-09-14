@@ -1,0 +1,74 @@
+@model shauli.Models.Post
+
+@{
+   ViewData["Title"] = "Edit Post";
+}
+
+<h2>Edit Post</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal" style="width:390px;position:absolute">
+        <h4>Edit Post</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="PostID" />
+        <div class="form-group">
+            <label asp-for="PostTitle" class="col-md-2 control-label">Title</label>
+            <div class="col-md-10">
+                <input asp-for="PostTitle" class="form-control" />
+                <span asp-validation-for="PostTitle" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PostAuthorName" class="col-md-2 control-label">Author Name</label>
+            <div class="col-md-10">
+                <input asp-for="PostAuthorName" class="form-control" />
+                <span asp-validation-for="PostAuthorName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PostAuthorWebAddress" class="col-md-2 control-label">User Link</label>
+            <div class="col-md-10">
+                <input asp-for="PostAuthorWebAddress" class="form-control" />
+                <span asp-validation-for="PostAuthorWebAddress" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Text" class="col-md-2 control-label">Text</label>
+            <div class="col-md-10">
+                <textarea input asp-for="Text" class="form-control" style="width:390px;height:150px;margin:12px -19px 35px 0px;">
+                </textarea>
+                <span asp-validation-for="Text" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="VideoPath" class="col-md-2 control-label">Video Link</label>
+            <div class="col-md-10">
+                <input asp-for="VideoPath" class="form-control" />
+                <span asp-validation-for="VideoPath" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PicturePath" class="col-md-2 control-label">Picture Link</label>
+            <div class="col-md-10">
+                <input asp-for="PicturePath" class="form-control" />
+                <span asp-validation-for="PicturePath" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div style="position:absolute;top:100px;">
+    <a asp-action="Index">Back to Blog</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

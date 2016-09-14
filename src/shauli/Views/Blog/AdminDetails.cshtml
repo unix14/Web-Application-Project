@@ -1,0 +1,32 @@
+@model shauli.Models.Admin
+
+@{
+    ViewData["Title"] = "Admin Details";
+}
+
+<h2>Admin Details</h2>
+<hr style="border:1px groove;width:570px" />
+<div>
+    <h4>Admin ID: @Model.ID</h4>
+    <hr />
+    <dl class="dl-horizontal" style="position:absolute">
+        <dt>
+           User Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt>
+            Password
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+    </dl>
+</div>
+
+<p style="position:static;padding-top:170px;">
+    <a asp-action="EditAdmin" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="DeleteAdmin" asp-route-id="@Model.ID">Delete</a>|
+    <a asp-action="AdminPanel">Back to Admin Panel</a>
+</p>

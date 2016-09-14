@@ -1,0 +1,46 @@
+@model shauli.Models.Fan
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Fan</h4>
+    <hr />
+    <dl class="dl-horizontal" style="width:520px;display:inline-block">
+        <dt>
+            First Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+        <dt>
+           Last Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+        <dt>
+            Gender
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+        <dt>
+            DogLover Since
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.vetek)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+@model IEnumerable<shauli.Models.Admin>
+@{
+    ViewData["Title"] = "Manage Admins";
+}
+<style>
+    table,th,td{
+        width:2px;
+    }
+    th,td{
+        width:8px;
+    }
+    th{
+        font-size:larger;
+    }
+</style>
+<h2>Manage Admins</h2>
+<hr style="border:1px groove;"/>
+
+
+<div style="overflow-x:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                User Name
+            </th>
+            <th>
+                Password
+            </th>
+            <th>Admin Panel</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        @if (item != null)
+        {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        *********
+                    </td>
+                    <td>
+                        <a asp-action="EditAdmin" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="AdminDetails" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="DeleteAdmin" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+        }
+}
+    </table>
+
+</div>
+<hr style="border:1px groove;" />

@@ -1,0 +1,26 @@
+@model shauli.Models.Admin
+
+@{
+    ViewData["Title"] = "Delete Post";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this Admin?</h3>
+<div>
+    <dl class="dl-horizontal" style="width:520px;display:inline-flex">
+        <dd>
+            UserName
+        </dd>
+        <dt>
+            @Html.DisplayFor(model => model.Username)
+        </dt>
+    </dl>
+    
+    <form asp-action="DeleteAdmin">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="AdminPanel">Back</a>
+        </div>
+    </form>
+</div>

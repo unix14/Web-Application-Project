@@ -1,0 +1,46 @@
+@model shauli.Models.Comment
+
+@{
+    ViewData["Title"] = "DeleteComments";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>comment</h4>
+    <hr />
+    <dl class="dl-horizontal" style="width:520px;display:inline-block">
+        <dt>
+            Comment Title
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentTitle)
+        </dd>
+        <dt>
+           Commenter
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentAuthorName)
+        </dd>
+        <dt>
+            User Link
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentAuthorWebAddress)
+        </dd>
+        <dt>
+            Comment
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+    </dl>
+    
+    <form asp-action="DeleteComment">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="AdminPanel">Back to List</a>
+        </div>
+    </form>
+</div>
